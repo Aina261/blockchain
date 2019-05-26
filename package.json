@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A simple Blockchain for training",
   "main": "app.ts",
-  "dependencies": {},
+  "dependencies": {
+    "js-sha256": "^0.9.0"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -13,8 +15,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^3.4.5",
     "ts-node": "^7.0.1",
-    "tsconfig-paths": "^3.7.0"
+    "tsconfig-paths": "^3.7.0",
+    "typescript": "^3.4.5"
   }
 }
