@@ -1,8 +1,10 @@
+import {TransactionInterface} from "../transaction/transaction.interface";
+
 export interface BlockInterface {
     index: number;
     hash: string;
     previousHash: string;
     nonce: number;
-    transaction: any[];
+    transaction: TransactionInterface[];
     key: string;
 }
