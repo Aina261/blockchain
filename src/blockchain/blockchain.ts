@@ -1,8 +1,8 @@
 import {BlockchainInterface} from "./blockchain.interface";
 import {BlockInterface} from "../block/block.interface";
 import {TransactionInterface} from "../transaction/transaction.interface";
-import sha256 from "js-sha256";
 import Block from "../block/block";
+import crypto from "crypto";
 
 export default class Blockchain implements BlockchainInterface {
     public blocks: BlockInterface[];
@@ -44,13 +44,12 @@ export default class Blockchain implements BlockchainInterface {
     }
 
     public generateHash(block: BlockInterface): string {
-        let hash = sha256(block.key);
+        let hash = crypto.createHmac('sha512', block.key).digest('hex');
         while (!hash.startsWith(Array(this.difficulty + 1).join('0'))) {
             block.nonce += 1;
-            hash = sha256(block.key);
-            console.log(hash);
-
+            hash = crypto.createHmac('sha512', block.key).digest('hex');
         }
+        console.log(hash);
         return hash;
     }
 }
