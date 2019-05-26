@@ -11,3 +11,7 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.send({"msg": "hello"});
 });
+
+app.listen(4000, () => {
+   console.log('listen 4000 port');
+});
