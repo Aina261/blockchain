@@ -5,11 +5,16 @@
   "main": "app.ts",
   "dependencies": {},
   "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "start": "ts-node -r tsconfig-paths/register src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0"
   }
 }
