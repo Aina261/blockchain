@@ -1,5 +1,5 @@
 
-interface TransactionInterface {
+export interface TransactionInterface {
     from: string;
     to: string;
     amount: number;

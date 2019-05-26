@@ -1,4 +1,4 @@
-interface BlockInteface {
+export interface BlockInterface {
     index: number;
     hash: string;
     previousHash: string;

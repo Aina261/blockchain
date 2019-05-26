@@ -1,4 +1,6 @@
-export default class Block implements Block {
+import {BlockInterface} from "./block.interface";
+
+export default class Block implements BlockInterface {
     constructor (
         public index: number = 0,
         public hash: string = '',
