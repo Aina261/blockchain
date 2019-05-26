@@ -2,13 +2,18 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var block_1 = __importDefault(require("./block/block"));
-var blockchain_1 = __importDefault(require("./blockchain/blockchain"));
-var transaction_1 = __importDefault(require("./transaction/transaction"));
-var block = new block_1.default();
-var blockchain = new blockchain_1.default(block);
-var transaction = new transaction_1.default('me', 'you', 7);
-var newBlock = blockchain.getNextBlock([transaction]);
-blockchain.addBlock(newBlock);
-console.log(blockchain);
+var express_1 = __importDefault(require("express"));
+var bodyParser = __importStar(require("body-parser"));
+var app = express_1.default();
+app.use(bodyParser.json());
+app.get('/', function (req, res) {
+    res.send({ "msg": "hello" });
+});

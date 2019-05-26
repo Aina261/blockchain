@@ -7,4 +7,5 @@ export interface BlockInterface {
     nonce: number;
     transaction: TransactionInterface[];
     key: string;
+    addTransaction(transaction: TransactionInterface):void ;
 }

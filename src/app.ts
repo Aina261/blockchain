@@ -2,12 +2,12 @@ import Block from "./block/block";
 import Blockchain from "./blockchain/blockchain";
 import Transaction from "./transaction/transaction";
 
-const block = new Block();
-const blockchain = new Blockchain(block);
+import express from "express";
+import * as bodyParser from 'body-parser';
 
-const transaction = new Transaction('me', 'you', 7);
+const app = express();
+app.use(bodyParser.json());
 
-const newBlock = blockchain.getNextBlock([transaction]);
-blockchain.addBlock(newBlock);
-
-console.log(blockchain);
+app.get('/', (req, res) => {
+    res.send({"msg": "hello"});
+});

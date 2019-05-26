@@ -8,6 +8,7 @@ var block_1 = __importDefault(require("../block/block"));
 var Blockchain = /** @class */ (function () {
     function Blockchain(genesisBlock) {
         this.blocks = [];
+        this.difficulty = 4;
         this.addBlock(genesisBlock);
     }
     Blockchain.prototype.addBlock = function (block) {
@@ -33,7 +34,7 @@ var Blockchain = /** @class */ (function () {
     };
     Blockchain.prototype.generateHash = function (block) {
         var hash = js_sha256_1.default(block.key);
-        while (!hash.startsWith('7a7')) {
+        while (!hash.startsWith(Array(this.difficulty + 1).join('0'))) {
             block.nonce += 1;
             hash = js_sha256_1.default(block.key);
             console.log(hash);
