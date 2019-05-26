@@ -1,4 +1,4 @@
-interface Block {
+interface BlockInteface {
     index: number;
     hash: string;
     previousHash: string;
